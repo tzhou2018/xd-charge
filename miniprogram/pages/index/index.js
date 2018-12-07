@@ -8,6 +8,12 @@ Page({
 
   onLoad: function() {
     
+  },
+
+  navToQuery () {
+    wx.navigateTo({
+      url: '../query/query'
+    })
   }
 
 })

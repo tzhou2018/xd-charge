@@ -1,0 +1,81 @@
+<!--miniprogram/pages/query/query.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells__title">
+      <!-- 选择 -->
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+
+      <!-- 校区 -->
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">
+            校区
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bindCampus" value="{{campusIndex}}" range="{{campusNames}}">
+            <view class="weui-select weui-select_in-select-after">
+              {{campusNames[campusIndex]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 楼栋 -->
+      <view class="weui-cell weui-cell_select" wx:if="{{buildings.length > 0}}">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">
+            楼栋
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bindBuilding" value="{{buildingIndex}}" range="{{buildingNames}}">
+            <view class="weui-select weui-select_in-select-after">
+              {{buildingNames[buildingIndex]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 区/单元 -->
+      <view class="weui-cell weui-cell_select" wx:if="{{needUnit}}">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">
+            区/单元
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bindUnit" value="{{unitIndex}}" range="{{unitNames}}">
+            <view class="weui-select weui-select_in-select-after">
+              {{unitNames[unitIndex]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <!-- 房间号 -->
+      <view class="weui-cell weui-cell_input" wx:if="{{buildings.length > 0}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">
+            房间号
+          </view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="number" placeholder="请输入3位房间号" maxlength="3" bindinput="bindRoom" />
+        </view>
+      </view>
+
+    </view>
+    
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="bindSubmit" disabled="{{room.length !== 3}}" wx:if="{{!chargeCode}}">
+        查询
+      </button>
+      <text wx:if="{{chargeCode}}" style="font-size: 2em;">{{chargeCode}}</text>
+      <button class="weui-btn" bindtap="bindCopy" wx:if="{{chargeCode}}">
+        复制电费账号
+      </button>
+    </view>
+  </view>
+</view>

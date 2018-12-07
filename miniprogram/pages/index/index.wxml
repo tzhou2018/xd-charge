@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
 
-  hello world
+  <button class="weui-btn" type="primary" bindtap="navToQuery">查询用电账号</button>
 
 </view>
