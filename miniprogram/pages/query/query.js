@@ -6,6 +6,10 @@ import {
   isNeedUnit
 } from '../../utils/buildings/buildings';
 
+import {
+  saveCodeToStor
+} from '../../utils/chargeCode';
+
 Page({
 
   /**
@@ -94,20 +98,31 @@ Page({
     })
   },
 
-  /** 将用电账号复制到剪切板 */
-  bindCopy: function() {
-    wx.setClipboardData({
-      data: this.data.chargeCode,
-      success (res) {
-        wx.showToast({
-          title: '电费账号已复制',
-          icon: 'none'
-        })
-        setTimeout(() => (
-          wx.hideToast()
-        ), 1500)
-      }
-    })
+  /** 保存用电账号 */
+  bindSave: function () {
+    let { 
+          chargeCode, 
+          campusNames, campusIndex, 
+          buildingNames, buildingIndex, 
+          unitNames, unitIndex, 
+          room
+        } = this.data
+    let addr = `${campusNames[campusIndex]}-${buildingNames[buildingIndex]}-${unitNames[unitIndex]}-${room}房间`
+    let result = saveCodeToStor(addr, chargeCode)
+
+    if(!result) {
+      wx.navigateTo({
+        url: '../index/index'
+      })
+    } else {
+      wx.showToast({
+        title: '保存失败，请重试',
+        icon: 'none'
+      })
+      setTimeout(() => (
+        wx.hideToast()
+      ), 1500)
+    }
   },
 
   /**

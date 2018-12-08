@@ -1,6 +1,28 @@
 <!--index.wxml-->
-<view class="container">
+<view class="page">
+  <view class="page__bd">
 
-  <button class="weui-btn" type="primary" bindtap="navToQuery">查询用电账号</button>
+    <view class="container">
+      <button class="weui-btn" type="primary" bindtap="navToQuery">查询新的用电账号</button>
+    </view>
 
+    <view class="weui-form-preview" wx:for="{{codes}}" wx:for-item="code">
+      <view class="weui-form-preview__hd">  
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">电费单号</view>
+          <view class="weui-form-preview__value_in-hd">{{code.chargeCode}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">门牌号</view>
+          <view class="weui-form-preview__value">{{code.addr}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+          <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="bindDel" data-id="{{code.id}}">删除</view>
+          <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="bindCopy" data-code="{{code.chargeCode}}">复制</view>
+      </view>
+    </view>
+  </view>
 </view>

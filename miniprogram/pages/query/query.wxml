@@ -73,8 +73,8 @@
         查询
       </button>
       <text wx:if="{{chargeCode}}" style="font-size: 2em;">{{chargeCode}}</text>
-      <button class="weui-btn" bindtap="bindCopy" wx:if="{{chargeCode}}">
-        复制电费账号
+      <button class="weui-btn" bindtap="bindSave" wx:if="{{chargeCode}}">
+        保存用电账号
       </button>
     </view>
   </view>
