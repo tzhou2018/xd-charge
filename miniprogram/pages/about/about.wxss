@@ -1,0 +1,36 @@
+/* miniprogram/pages/about/about.wxss */
+page {
+  background: rgb(249, 249, 251);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.empty-title {
+  font-weight: bold;
+}
+
+.empty-desc {
+  text-align: center;
+  width: 60%;
+  font-size: 0.7em;
+  color: rgb(177, 177, 177);
+}
+
+.empty-btn {
+  position: absolute;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to right,rgb(69, 168, 244), rgb(69, 230, 244));
+}
+
+.empty-btn_img {
+  width: 20px;
+  height: 20px;
+}

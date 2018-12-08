@@ -107,11 +107,11 @@ Page({
           unitNames, unitIndex, 
           room
         } = this.data
-    let addr = `${campusNames[campusIndex]}-${buildingNames[buildingIndex]}-${unitNames[unitIndex]}-${room}房间`
+    let addr = `${campusNames[campusIndex]}-${buildingNames[buildingIndex]}-${unitIndex+1}-${room}`
     let result = saveCodeToStor(addr, chargeCode)
 
     if(!result) {
-      wx.navigateTo({
+      wx.reLaunch({
         url: '../index/index'
       })
     } else {

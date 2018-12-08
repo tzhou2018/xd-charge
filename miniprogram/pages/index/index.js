@@ -45,21 +45,35 @@ Page({
 
   /** 将用电账号从存储中删除*/
   bindDel: function(e) {
-    let result = delCodeInStor(e.target.dataset.id)
-    if(Array.isArray(result)) {
-      // 删除成功，展示新的用电账号列表
-      this.setData({
-        codes: result.sort((a, b) => a.id < b.id)
-      })
-    } else {
-      wx.showToast({
-        title: '删除失败，请重试',
-        icon: 'none'
-      })
-      setTimeout(() => (
-        wx.hideToast()
-      ), 1500)
-    }
+    let that = this,
+        { codes } = this.data,
+        code_id = e.target.dataset.id,
+        code = codes.filter((c) => c.id === code_id)[0]
+
+    wx.showModal({
+      title: '删除电费账号',
+      content: `${code.addr}(${code.chargeCode})`,
+      success (res) {
+        if(res.cancel) return;
+        let result = delCodeInStor(code_id)
+        if(Array.isArray(result)) {
+          // 删除成功，展示新的用电账号列表
+          that.setData({
+            codes: result.sort((a, b) => a.id < b.id)
+          })
+        } else {
+          wx.showToast({
+            title: '删除失败，请重试',
+            icon: 'none'
+          })
+          setTimeout(() => (
+            wx.hideToast()
+          ), 1500)
+        }
+      }
+    })
+
+    
   },
 
 })

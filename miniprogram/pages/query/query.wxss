@@ -1,1 +1,15 @@
 /* miniprogram/pages/query/query.wxss */
+.query-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.query-footer-btn {
+  width: 100%;
+}
+
+.query-footer-btn-cal {
+  background: linear-gradient(to right,rgb(69, 168, 244), rgb(69, 230, 244));
+  color: white;
+}

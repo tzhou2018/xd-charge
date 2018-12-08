@@ -68,13 +68,13 @@
 
     </view>
     
-    <view class="weui-btn-area">
-      <button class="weui-btn" type="primary" bindtap="bindSubmit" disabled="{{room.length !== 3}}" wx:if="{{!chargeCode}}">
+    <view class="weui-btn-area query-footer">
+      <button class="weui-btn query-footer-btn {{room.length === 3 ? 'query-footer-btn-cal' : ''}}" bindtap="bindSubmit" disabled="{{room.length !== 3}}" wx:if="{{!chargeCode}}">
         查询
       </button>
       <text wx:if="{{chargeCode}}" style="font-size: 2em;">{{chargeCode}}</text>
-      <button class="weui-btn" bindtap="bindSave" wx:if="{{chargeCode}}">
-        保存用电账号
+      <button class="weui-btn query-footer-btn query-footer-btn_save" bindtap="bindSave" wx:if="{{chargeCode}}">
+        保存
       </button>
     </view>
   </view>

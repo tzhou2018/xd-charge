@@ -2,27 +2,64 @@
 <view class="page">
   <view class="page__bd">
 
-    <view class="container">
-      <button class="weui-btn" type="primary" bindtap="navToQuery">查询新的用电账号</button>
+    <!-- 没有已保存电费账号列表时，显示与about页相同的关于我们 -->
+    <view class="container" wx:if="{{codes.length === 0}}">
+      <!-- 空白页头图 -->
+      <image src="../../images/empty-logo.png" style="width: 200px; height: 200px;" />
+      <!-- 空白页文字 -->
+      <view class="empty-title">西电电费账号查询</view>
+      <view class="empty-desc">
+        免责声明：根据后勤处「学生预付费电表账号编码规则」制作，适用于南北校区学生公寓，仅供参考。
+      </view>
+      <!-- 空白页的搜索按钮 -->
+      <button class="empty-btn" bindtap="navToQuery">
+        <image class="empty-btn_img" src="../../images/search.png" />
+      </button>
     </view>
 
-    <view class="weui-form-preview" wx:for="{{codes}}" wx:for-item="code">
-      <view class="weui-form-preview__hd">  
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">电费单号</view>
-          <view class="weui-form-preview__value_in-hd">{{code.chargeCode}}</view>
+    <!-- 有已保存的电费账号列表时，显示电费账号列表 -->
+    <block wx:if="{{codes.length !== 0}}">
+      <view class="weui-cells__title">已保存的用电账号</view>
+      <view class="weui-cells weui-cells_after-title code-box">
+        <view class="weui-cell code-item" wx:for="{{codes}}" wx:for-item="code">
+          <view class="weui-cell__hd">
+            <view bindtap="bindDel" data-id="{{code.id}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;">
+              <view class="code-item_dot"/>
+            </view>
+          </view>
+          <view class="weui-cell__bd" style="overflow: hidden;">
+            <view class="code-item_code">{{code.chargeCode}}</view>
+            <view class="code-item_addr">
+              {{code.addr}}
+            </view>
+          </view>
+          <view class="weui-cell__ft">
+            <button class="code-item_btn" bindtap="bindCopy" data-code="{{code.chargeCode}}">
+              复制账号
+            </button>
+          </view>
         </view>
       </view>
-      <view class="weui-form-preview__bd">
-        <view class="weui-form-preview__item">
-          <view class="weui-form-preview__label">门牌号</view>
-          <view class="weui-form-preview__value">{{code.addr}}</view>
+
+      <!-- 页脚 -->
+      <view class="weui-footer weui-footer_fixed-bottom">
+        <view class="weui-footer__links">
+          <navigator url="../about/about" class="weui-footer__link">关于我们</navigator>
         </view>
+        <view class="weui-footer__text">Copyright © 2018</view>
       </view>
-      <view class="weui-form-preview__ft">
-          <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="bindDel" data-id="{{code.id}}">删除</view>
-          <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="bindCopy" data-code="{{code.chargeCode}}">复制</view>
-      </view>
+
+    </block>
+
+    <!-- 有已保存的电费账号列表时，显示新增按钮 -->
+    <view class="container" wx:if="{{codes.length !== 0}}">
+      <!-- 新增按钮 -->
+      <button class="empty-btn" bindtap="navToQuery">
+        <image class="empty-btn_img" src="../../images/add.png" />
+      </button>
     </view>
+    
+
+
   </view>
 </view>

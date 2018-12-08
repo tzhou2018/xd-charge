@@ -1,8 +1,84 @@
 /**index.wxss**/
 
 page {
-  background: #f6f6f6;
+  background: rgb(249, 249, 251);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+.empty-title {
+  font-weight: bold;
+}
+
+.empty-desc {
+  text-align: center;
+  width: 60%;
+  font-size: 0.7em;
+  color: rgb(177, 177, 177);
+}
+
+.empty-btn {
+  position: fixed;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to right,rgb(69, 168, 244), rgb(69, 230, 244));
+}
+
+.empty-btn_img {
+  width: 20px;
+  height: 20px;
+}
+
+.code-box {
+  background-color: transparent;
+  margin-bottom: 180px;
+}
+
+.code-item {
+  background-color: white;
+  border-radius: 10rpx;
+  margin: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.code-item_dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(69, 197, 244);
+  border-radius: 50%;
+}
+
+.code-item_code {
+  font-weight: bold;
+}
+
+.code-item_addr {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.8em;
+  color: rgb(177, 177, 177);
+  margin-top: 5px;
+}
+
+.code-item_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30px;
+  width: 6em;
+  font-size: 0.7em;
+  padding: 10rpx;
+  border-radius: 30px;
+  background: linear-gradient(to right,rgb(69, 168, 244), rgb(69, 230, 244));
+  color: white;
 }

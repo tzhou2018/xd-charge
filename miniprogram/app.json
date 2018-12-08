@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/query/query"
+    "pages/query/query",
+    "pages/about/about"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
