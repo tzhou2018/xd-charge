@@ -81,7 +81,8 @@ Page({
   bindRoom: function (e) {
     let room = e.detail.value
     this.setData({
-      room
+      room,
+      chargeCode: ''
     })
   },
 
@@ -98,7 +99,7 @@ Page({
     })
   },
 
-  /** 保存用电账号 */
+  /** 保存电费账号 */
   bindSave: function () {
     let { 
           chargeCode, 

@@ -22,7 +22,7 @@ const D_RULE_U_R  = 2;   /* D = 单元号或区号 + 房间号 */
 
 
 /**
- * 获取用电账户号码
+ * 获取电费账户号码
  *
  * @param {*} buildingNum 楼号
  * @param {*} campus 校区 1-北校区 2-南校区

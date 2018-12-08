@@ -1,8 +1,8 @@
 /**
- * 存储一条新的用电账号
+ * 存储一条新的电费账号
  *
  * @param {*} addr 门牌号
- * @param {*} chargeCode 用电账号
+ * @param {*} chargeCode 电费账号
  * @returns
  */
 let saveCodeToStor = (addr, chargeCode) => {
@@ -23,7 +23,7 @@ let saveCodeToStor = (addr, chargeCode) => {
 }
 
 /**
- * 获取用电账号列表
+ * 获取电费账号列表
  *
  * @returns
  */
@@ -33,9 +33,9 @@ let getCodesFromStor = () => {
 }
 
 /**
- * 删除一条用电账号
+ * 删除一条电费账号
  *
- * @param {*} code_id 用电账号记录id
+ * @param {*} code_id 电费账号记录id
  * @returns
  */
 let delCodeInStor = (code_id) => {

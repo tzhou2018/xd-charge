@@ -27,13 +27,13 @@ Page({
     })
   },
 
-  /** 将用电账号复制到剪切板 */
+  /** 将电费账号复制到剪切板 */
   bindCopy: function(e) {
     wx.setClipboardData({
       data: e.target.dataset.code,
       success (res) {
         wx.showToast({
-          title: '用电账号已复制',
+          title: '电费账号已复制',
           icon: 'none'
         })
         setTimeout(() => (
@@ -43,7 +43,7 @@ Page({
     })
   },
 
-  /** 将用电账号从存储中删除*/
+  /** 将电费账号从存储中删除*/
   bindDel: function(e) {
     let that = this,
         { codes } = this.data,
@@ -57,7 +57,7 @@ Page({
         if(res.cancel) return;
         let result = delCodeInStor(code_id)
         if(Array.isArray(result)) {
-          // 删除成功，展示新的用电账号列表
+          // 删除成功，展示新的电费账号列表
           that.setData({
             codes: result.sort((a, b) => a.id < b.id)
           })

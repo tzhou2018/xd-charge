@@ -19,7 +19,7 @@
 
     <!-- 有已保存的电费账号列表时，显示电费账号列表 -->
     <block wx:if="{{codes.length !== 0}}">
-      <view class="weui-cells__title">已保存的用电账号</view>
+      <view class="weui-cells__title">已保存的电费账号</view>
       <view class="weui-cells weui-cells_after-title code-box">
         <view class="weui-cell code-item" wx:for="{{codes}}" wx:for-item="code">
           <view class="weui-cell__hd">
