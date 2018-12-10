@@ -72,7 +72,8 @@
       <button class="weui-btn query-footer-btn {{room.length === 3 ? 'query-footer-btn-cal' : ''}}" bindtap="bindSubmit" disabled="{{room.length !== 3}}" wx:if="{{!chargeCode}}">
         查询
       </button>
-      <text wx:if="{{chargeCode}}" style="font-size: 2em;">{{chargeCode}}</text>
+      <text wx:if="{{chargeCode}}" class="query-footer-rst" selectable="true">{{chargeCode}}</text>
+      <!-- <text wx:if="{{chargeCode}}" class="query-footer-room">官方门牌号: {{roomStr}}</text> -->
       <button class="weui-btn query-footer-btn query-footer-btn_save" bindtap="bindSave" wx:if="{{chargeCode}}">
         保存
       </button>

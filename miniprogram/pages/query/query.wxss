@@ -13,3 +13,17 @@
   background: linear-gradient(to right,rgb(69, 168, 244), rgb(69, 230, 244));
   color: white;
 }
+
+.query-footer-rst {
+  font-size: 2em;
+  border: dashed 3px #888;
+  border-radius: 20rpx;
+  background-color: #eee;
+  padding: 20rpx 40rpx;
+}
+
+.query-footer-room {
+  font-size: 0.8em;
+  line-height: 2em;
+  color: rgb(177, 177, 177);
+}
