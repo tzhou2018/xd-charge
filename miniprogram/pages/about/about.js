@@ -8,6 +8,12 @@ Page({
 
   },
 
+  onShareAppMessage: function () {
+    return {
+      title: '查询西电电费账号'
+    }
+  },
+
   navToQuery () {
     wx.navigateTo({
       url: '../query/query'
