@@ -7,7 +7,8 @@ import {
 } from '../../utils/buildings/buildings';
 
 import {
-  saveCodeToStor
+  saveCodeToStor,
+  checkCodeValid
 } from '../../utils/chargeCode';
 
 Page({
@@ -25,7 +26,8 @@ Page({
     unitNames: ['1区/1单元', '2区/2单元', '3区/3单元', '4区/4单元', '5区/5单元'],
     unitIndex: 0,
     room: '',
-    chargeCode: ''
+    chargeCode: '',
+    roomStr: '',  /** 门牌号字符串：数据库中检索到的原始门牌号 */
   },
 
   /** 选中校区 */
@@ -93,9 +95,24 @@ Page({
         unit = this.data.unitIndex + 1,
         room = this.data.room
     
-    let chargeCode = getChargeCode(buildingNum, campus, unit, room)
+    let chargeCode = getChargeCode(buildingNum, campus, unit, room),
+        roomStr = checkCodeValid(chargeCode)
+
+    if (!roomStr) {
+      /** 此电费账号在数据库中不存在 */
+      wx.showToast({
+        title: '未查询到您的电费单号',
+        icon: 'none'
+      })
+      setTimeout(() => {
+        wx.hideToast()
+      }, 1500)
+      return;
+    }
+
     this.setData({
-      chargeCode
+      chargeCode,
+      roomStr
     })
   },
 

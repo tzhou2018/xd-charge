@@ -1,3 +1,7 @@
+import {
+  codes
+} from './chargeCodesData';
+
 /**
  * 存储一条新的电费账号
  *
@@ -50,8 +54,26 @@ let delCodeInStor = (code_id) => {
   }
 }
 
+/**
+ * 校验电费单号
+ *
+ * @param {*} chargeCode
+ * @returns 门牌号字符串
+ */
+let checkCodeValid = (chargeCode) => {
+  let validFlag = codes.some((code) => code.c === chargeCode);
+
+  if(validFlag) {
+    let code = codes.filter((code) => code.c === chargeCode)[0]
+    return `${code.n}-${code.r}`
+  }
+
+  return ''
+}
+
 module.exports = {
   saveCodeToStor,
   getCodesFromStor,
-  delCodeInStor
+  delCodeInStor,
+  checkCodeValid
 }
