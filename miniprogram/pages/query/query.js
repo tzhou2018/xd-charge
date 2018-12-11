@@ -37,6 +37,7 @@ Page({
     this.setData({
       campusIndex,
       buildings: [],
+      needUnit: false,
       chargeCode: ''
     })
     /** 给出楼栋列表 */
@@ -60,6 +61,7 @@ Page({
     let buildingIndex = parseInt(e.detail.value);
     this.setData({
       buildingIndex,
+      needUnit: false,
       chargeCode: ''
     })
     /** 查询是否需要单元号 */
@@ -122,10 +124,12 @@ Page({
           chargeCode, 
           campusNames, campusIndex, 
           buildingNames, buildingIndex, 
-          unitNames, unitIndex, 
+          unitNames, unitIndex, needUnit,
           room
         } = this.data
-    let addr = `${campusNames[campusIndex]}-${buildingNames[buildingIndex]}-${unitIndex+1}-${room}`
+    let addr = `${campusNames[campusIndex]}-${buildingNames[buildingIndex]}`;
+    if(needUnit) addr += `-${unitIndex + 1}`;  /** 若不需要单元/区号，则不应添加 */
+    addr += `-${room}`;
     let result = saveCodeToStor(addr, chargeCode)
 
     if(!result) {
