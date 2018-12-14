@@ -44,6 +44,10 @@
       <!-- 页脚 -->
       <view class="weui-footer weui-footer_fixed-bottom">
         <view class="weui-footer__links">
+          <view class="weui-footer__link" bindtap="onQueryBanlance">
+            <text class='iconfont icon-chadianfei' style='color:#7F8389; font-size: 0.8em; line-height: 1em;'></text>
+            查电费
+          </view>
           <navigator url="../about/about" class="weui-footer__link">关于我们</navigator>
         </view>
         <view class="weui-footer__text">Copyright © 2018</view>
