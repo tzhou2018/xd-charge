@@ -17,6 +17,10 @@ page {
   color: rgb(177, 177, 177);
 }
 
+.empty-line {
+  height: 1em;
+}
+
 .empty-btn {
   position: absolute;
   bottom: 100px;

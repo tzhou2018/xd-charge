@@ -10,6 +10,9 @@
       <view class="empty-desc">
         免责声明：根据后勤处「学生预付费电表账号编码规则」制作，适用于南北校区学生公寓，仅供参考。
       </view>
+      <view class="empty-line" />
+      <view class="empty-desc">开源地址：</view>
+      <view class="empty-desc" bindtap="bindCopy">https://github.com/hoooxz/xd-charge</view>
       <!-- 空白页按钮 -->
       <button class="empty-btn" bindtap="navToQuery">
         <image class="empty-btn_img" src="../../images/search.png" />

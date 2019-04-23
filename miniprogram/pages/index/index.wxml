@@ -50,7 +50,7 @@
           </view>
           <navigator url="../about/about" class="weui-footer__link">关于我们</navigator>
         </view>
-        <view class="weui-footer__text">Copyright © 2018</view>
+        <view class="weui-footer__text">Copyright © 2019</view>
       </view>
 
     </block>
